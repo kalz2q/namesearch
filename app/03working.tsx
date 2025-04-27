@@ -601,7 +601,6 @@ export default function Home() {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
       randomName[0]
     )}&tbm=isch`;
-    window.open(searchUrl, "null", "top=100,left=100");
     window.open(searchUrl, "_blank", `width=${windowWidth}`);
   };
 
@@ -611,16 +610,37 @@ export default function Home() {
       <p className="text-[24px] my-5">
         {randomName[0] || "ボタンを押して名前を表示"}
       </p>
-      <button
-        onClick={getRandomName}
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          cursor: "pointer",
-        }}
-      >
-        新しい名前を生成
-      </button>
+
+      {/* 変更箇所: ボタン群にスタイルを追加 */}
+      <div className="flex justify-center gap-3 mb-6">
+        <button
+          onClick={() => setWhoFlag(!whoFlag)}
+          className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-md shadow-sm transition-colors"
+        >
+          誰？
+        </button>
+        <button
+          onClick={showGoogleSearch}
+          className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-sm transition-colors"
+        >
+          顔？
+        </button>
+        <button
+          onClick={getRandomName}
+          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md shadow-sm transition-colors"
+        >
+          新しい名前を生成
+        </button>
+      </div>
+
+      <div className="mt-5">
+        {whoFlag && (
+          <div>
+            <p className="text-[24px]">{randomName[1]}</p>
+            <p className="text-[24px]">{randomName[2]}</p>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
