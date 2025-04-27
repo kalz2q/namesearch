@@ -1147,7 +1147,7 @@ export default function Home() {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
       selectedName
     )}&tbm=isch`;
-    window.open(searchUrl, "_blank");
+    window.open(searchUrl, "null", "top=100,left=100");
   };
 
   return (
@@ -1162,6 +1162,7 @@ export default function Home() {
           padding: "10px 20px",
           fontSize: "16px",
           cursor: "pointer",
+          background: "skyblue",
         }}
       >
         新しい名前を生成
