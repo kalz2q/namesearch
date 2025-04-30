@@ -1922,12 +1922,11 @@ export default function Home() {
     setWhoFlag(false);
   };
 
-  // https://search.yahoo.co.jp/image/search?p=%E9%87%8C%E8%A6%8B%E6%B5%A9%E5%A4%AA%E6%9C%97
-  const showYahooSearch = () => {
+  const showGoogleSearch = () => {
     const windowWidth = Math.floor(screen.width * 0.9);
-    const searchUrl = `https://search.yahoo.co.jp/image/search?p=${encodeURIComponent(
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
       randomName[0]
-    )}`;
+    )}&tbm=isch`;
     window.open(searchUrl, "_blank", `width=${windowWidth}`);
   };
 
@@ -1947,7 +1946,7 @@ export default function Home() {
           誰？
         </button>
         <button
-          onClick={showYahooSearch}
+          onClick={showGoogleSearch}
           className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-sm transition-colors"
         >
           顔？
